@@ -3,54 +3,164 @@
 <head>
     <title>SILVER SHADOW</title>
     <style>
-        /* Forces crisp, blocky pixelation on images instead of modern smoothing */
+        /* Forces crisp, blocky pixelation on 16-color GIFs instead of modern blurring */
         img {
             image-rendering: pixelated;
             image-rendering: crisp-edges;
         }
+        
         /* Authentic 90s text blinking animation */
         .retro-blink {
-            animation: blinker 1.0s linear infinite;
-            color: #FF00FF;
-            font-weight: bold;
+            animation: blinker 1.2s linear infinite;
         }
         @keyframes blinker {
             50% { opacity: 0; }
         }
+
+        /* Floating randomized GIF positions that clear the main content table */
+        .float-gif-left1  { position: absolute; top: 180px; left: 4%; }
+        .float-gif-left2  { position: absolute; top: 450px; left: 2%; }
+        .float-gif-left3  { position: absolute; top: 720px; left: 5%; }
+        .float-gif-right1 { position: absolute; top: 160px; right: 4%; }
+        .float-gif-right2 { position: absolute; top: 480px; right: 3%; }
+        .float-gif-right3 { position: absolute; top: 760px; right: 5%; }
     </style>
 </head>
-<body bgcolor="#000000" text="#00FF00" link="#00FFFF" vlink="#FF00FF" background="https://archive.org">
+<body bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
+
+    <!-- RANDOMIZED BACKGROUND GRAPHICS (IMG1 to IMG6) -->
+    <!-- These sit safely in the empty screen margins without breaking the boxy center table -->
+    <div class="float-gif-left1"><img src="IMG1.GIF" alt="[X]" width="100"></div>
+    <div class="float-gif-left2"><img src="IMG2.GIF" alt="[X]" width="80"></div>
+    <div class="float-gif-left3"><img src="IMG3.GIF" alt="[X]" width="110"></div>
+    <div class="float-gif-right1"><img src="IMG4.GIF" alt="[X]" width="90"></div>
+    <div class="float-gif-right2"><img src="IMG5.GIF" alt="[X]" width="120"></div>
+    <div class="float-gif-right3"><img src="IMG6.GIF" alt="[X]" width="85"></div>
 
     <center>
-        <h1><font color="#FF0000" face="Impact">SILVER SHADOW</font></h1>
-        
-        <marquee scrollamount="6" width="60%">*** CEASE TO BELIEVE IN ALL ETERNITY ***</marquee>
-        
-        <br><br>
-        <img src="https://archive.org" alt="Under Construction">
+        <br>
+        <!-- AUTHENTIC HIGH-VOLTAGE TITLE BLOCK -->
+        <h1>
+            <font face="Times New Roman, Times, serif" color="#FF0000" size="7">
+                <b>SILVER SHADOW</b>
+            </font>
+        </h1>
+
+        <!-- UNDER CONSTRUCTION WARNING NOTIFICATION -->
+        <font face="Courier New, Courier, monospace" color="#0000FF" size="3">
+            <b>::: WARNING: SITE UNDER SEVERE DIGITAL RECONSTRUCTION :::</b>
+        </font>
         <br><br>
 
-        <!-- Pure 90s Table Grid Layout -->
-        <table border="5" bordercolor="#FF0000" bgcolor="#111111" cellpadding="10" width="70%">
+        <!-- THE LYRIC MARQUEE RUNNING ACROSS THE SKY -->
+        <table border="2" bordercolor="#0000FF" bgcolor="#000000" width="80%" cellpadding="4">
             <tr>
-                <td align="center" width="30%">
-                    <font size="+1"><b>EXECUTION</b></font><br><br>
-                    <a href="index.html">HOME</a><br>
-                    <a href="mailto:your-email@domain.com">CONTACT</a>
-                </td>
                 <td>
-                    <h2>DEMO TRACKS LOADING...</h2>
-                    <p>Coming Soon...</p>
-                    <p class="retro-blink">!! SITE ACTIVE SINCE: JULY 1 2026 !!</p>
+                    <marquee scrollamount="5" direction="left">
+                        <font face="Courier New, Courier, monospace" color="#800080" size="4">
+                            <b>CEASE TO BELEIVE IN ALL ETERNITY - CONSCIOUSNESS EXISTS WITHOUT AN ENTITY... COMING SOON... DECAY IMMINENT... ALL SYSTEMS TERMINATED...</b>
+                        </font>
+                    </marquee>
+                </td>
+            </tr>
+        </table>
+
+        <br><br><br>
+
+        <!-- THE MAIN BOXY STRUCTURAL CONTAINER -->
+        <table border="6" bordercolor="#FF0000" bgcolor="#000022" cellpadding="15" width="60%">
+            <tr>
+                <!-- LEFT SIDE PANEL: NAVIGATION LOG -->
+                <td align="center" valign="top" width="30%" style="border-right: 4px solid #0000FF;">
+                    <font face="Times New Roman, Times, serif" color="#800080" size="4">
+                        <b>INDEX LOG</b>
+                    </font>
+                    <br><br>
+                    <font face="Courier New, Courier, monospace" size="3">
+                        <a href="index.html"><font color="#FF0000">MAIN ARCHIVE</font></a><br><br>
+                        <a href="#sonic"><font color="#FF0000">SONIC NOISE</font></a><br><br>
+                        <a href="#transmissions"><font color="#FF0000">UPDATES</font></a><br><br>
+                        <a href="mailto:silvershadow@yourdomain.com"><font color="#FF0000">CONTACT</font></a>
+                    </font>
+                </td>
+
+                <!-- RIGHT SIDE PANEL: CONTENT HUB -->
+                <td valign="top">
+                    <h2>
+                        <font face="Times New Roman, Times, serif" color="#0000FF">
+                            SYSTEM TRANSMISSIONS:
+                        </font>
+                    </h2>
+                    
+                    <p>
+                        <font face="Courier New, Courier, monospace" color="#FF0000" size="3">
+                            Welcome to the mainframe of SILVER SHADOW. This space is actively being reformatted to house bitcrushed tracking audio data, raw noise loops, and artifacted image arrays. 
+                        </font>
+                    </p>
+                    
+                    <p>
+                        <font face="Courier New, Courier, monospace" color="#FF0000" size="3">
+                            The visual rendering elements are locked to a strict 16-color limit to bypass modern visual filtering protocols. Prepare your terminal deck.
+                        </font>
+                    </p>
+                    
+                    <br>
+                    <center>
+                        <font face="Times New Roman, Times, serif" color="#800080" size="4" class="retro-blink">
+                            <b>[ !! DEPLOYMENT SCHEDULING: COMING SOON - JULY 2026 !! ]</b>
+                        </font>
+                    </center>
+                </td>
+            </tr>
+        </table>
+
+        <br><br><br>
+
+        <!-- FOOTER ELEMENT: SONIC NOISE PLAYER CORE -->
+        <a name="sonic"></a>
+        <table border="3" bordercolor="#800080" bgcolor="#000000" cellpadding="8" width="45%">
+            <tr>
+                <td align="center">
+                    <font color="#0000FF" face="Courier New, Courier, monospace" size="2">
+                        [ RECKONING TAPE Core v1.0 ]
+                    </font>
+                    <br><br>
+                    
+                    <!-- Sound file framework reading from repository folder -->
+                    <audio id="metaltrack" loop>
+                        <source src="track1.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <!-- Click-to-activate sound engine switch -->
+                    <button onclick="igniteNoise()" style="background-color: #000000; color: #FF0000; font-family: 'Times New Roman'; font-size: 18px; font-weight: bold; padding: 8px 16px; border: 4px double #FF0000; cursor: pointer;">
+                        LAUNCH BITCRUSHED AUDIO
+                    </button>
                 </td>
             </tr>
         </table>
 
         <br><br>
-        <p>YOU ARE:</p>
-        <img src="https://archive.org" alt="Hit Counter">
+        <!-- HIT COUNTER METRIC ARCHIVE -->
+        <font face="Courier New, Courier, monospace" color="#800080" size="2">
+            CORRUPTED VISITORS CACHED:
+        </font>
+        <br>
+        <img src="https://archive.org" alt="Metric Log">
+        <br><br>
     </center>
+
+    <!-- AUTOMATION SCRIPTS -->
+    <script>
+        // Bypasses modern browser security barriers to initialize the MP3 track on user prompt
+        function igniteNoise() {
+            var audio = document.getElementById("metaltrack");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 
 </body>
 </html>
-
