@@ -17,7 +17,6 @@
         }
 
         /* Floating layout positions pushed farther out to guarantee zero table overlapping */
-        /* Increased image width slightly to make them pop more as requested */
         .float-gif-left1  { position: absolute; top: 160px; left: 2%; }
         .float-gif-left2  { position: absolute; top: 480px; left: 1%; }
         .float-gif-left3  { position: absolute; top: 800px; left: 2%; }
@@ -29,7 +28,7 @@
 </head>
 <body bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
 
-    <!-- SYMMETRIC MARGIN GRAPHICS - ENLARGED & PUSHED OUTWARD -->
+    <!-- SYMMETRIC MARGIN GRAPHICS -->
     <div class="float-gif-left1"><img src="IMG1.gif" alt="[X]" width="130"></div>
     <div class="float-gif-left2"><img src="IMG2.gif" alt="[X]" width="130"></div>
     <div class="float-gif-left3"><img src="IMG3.gif" alt="[X]" width="130"></div>
@@ -80,15 +79,11 @@
                     
                     <br><br><br>
 
-                    <!-- BITCRUSHED TAPE PLAYER CORE -->
-                    <audio id="metaltrack" loop>
-                        <source src="track1.mp3" type="audio/mpeg">
-                    </audio>
-
-                    <!-- YOUR SIMPLE SWITCH -->
-                    <button onclick="igniteNoise()" style="background-color: #000000; color: #FF0000; font-family: 'Times New Roman'; font-size: 20px; font-weight: bold; padding: 10px 25px; border: 4px double #FF0000; cursor: pointer;">
-                        CLICK ME
-                    </button>
+                    <!-- ICON TRIGGER FOR THE NEW HTML FILE -->
+                    <!-- Wraps icon.gif in a link to EXEC19.html with no thick border outline around the graphic -->
+                    <a href="EXEC19.html">
+                        <img src="icon.gif" alt="[ EXECUTE ]" border="0" width="100">
+                    </a>
 
                 </td>
             </tr>
@@ -107,17 +102,6 @@
         <br><br>
         
     </center>
-
-    <script>
-        function igniteNoise() {
-            var audio = document.getElementById("metaltrack");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-    </script>
 
 </body>
 </html>
