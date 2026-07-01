@@ -3,12 +3,12 @@
 <head>
     <title>SILVER SHADOW</title>
     <style>
-        /* Forces crisp pixelation on your 16-color GIFs instead of modern blur */
+        /* Forces crisp, brutal pixelation on your 16-color GIFs instead of modern blurring */
         img {
             image-rendering: pixelated;
             image-rendering: crisp-edges;
         }
-        /* 90s text blinking animation */
+        /* 90s text blinking animation script */
         .retro-blink {
             animation: blinker 1.2s linear infinite;
         }
@@ -16,25 +16,27 @@
             50% { opacity: 0; }
         }
 
-        /* Floating randomized GIF positions out in the margins */
-        .float-gif-left1  { position: absolute; top: 160px; left: 4%; }
-        .float-gif-left2  { position: absolute; top: 480px; left: 3%; }
-        .float-gif-left3  { position: absolute; top: 780px; left: 4%; }
-        .float-gif-right1 { position: absolute; top: 160px; right: 4%; }
-        .float-gif-right2 { position: absolute; top: 480px; right: 3%; }
-        .float-gif-right3 { position: absolute; top: 780px; right: 4%; }
+        /* Floating layout positions pushed farther out to guarantee zero table overlapping */
+        /* Increased image width slightly to make them pop more as requested */
+        .float-gif-left1  { position: absolute; top: 160px; left: 2%; }
+        .float-gif-left2  { position: absolute; top: 480px; left: 1%; }
+        .float-gif-left3  { position: absolute; top: 800px; left: 2%; }
+        
+        .float-gif-right1 { position: absolute; top: 160px; right: 2%; }
+        .float-gif-right2 { position: absolute; top: 480px; right: 1%; }
+        .float-gif-right3 { position: absolute; top: 800px; right: 2%; }
     </style>
 </head>
 <body bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
 
-    <!-- UPPERCASE MARGIN GRAPHICS (Symmetric left and right columns) -->
-    <div class="float-gif-left1"><img src="IMG1.gif" alt="[X]" width="90"></div>
-    <div class="float-gif-left2"><img src="IMG2.gif" alt="[X]" width="90"></div>
-    <div class="float-gif-left3"><img src="IMG3.gif" alt="[X]" width="90"></div>
+    <!-- SYMMETRIC MARGIN GRAPHICS - ENLARGED & PUSHED OUTWARD -->
+    <div class="float-gif-left1"><img src="IMG1.gif" alt="[X]" width="130"></div>
+    <div class="float-gif-left2"><img src="IMG2.gif" alt="[X]" width="130"></div>
+    <div class="float-gif-left3"><img src="IMG3.gif" alt="[X]" width="130"></div>
     
-    <div class="float-gif-right1"><img src="IMG4.gif" alt="[X]" width="90"></div>
-    <div class="float-gif-right2"><img src="IMG5.gif" alt="[X]" width="90"></div>
-    <div class="float-gif-right3"><img src="IMG6.gif" alt="[X]" width="90"></div>
+    <div class="float-gif-right1"><img src="IMG4.gif" alt="[X]" width="130"></div>
+    <div class="float-gif-right2"><img src="IMG5.gif" alt="[X]" width="130"></div>
+    <div class="float-gif-right3"><img src="IMG6.gif" alt="[X]" width="130"></div>
 
     <center>
         <br><br>
@@ -58,7 +60,7 @@
                 <td>
                     <marquee scrollamount="5" direction="left">
                         <font face="Courier New, Courier, monospace" color="#800080" size="4">
-                            <b>CEASE TO BELEIVE IN ALL ETERNITY - CONSCIOUSNESS EXISTS WITHOUT AN ENTITY... COMING SOON...</b>
+                            <b>CEASE TO BELIEIVE IN ALL ETERNITY - CONSCIOUSNESS EXISTS WITHOUT AN ENTITY... COMING SOON...</b>
                         </font>
                     </marquee>
                 </td>
@@ -95,6 +97,14 @@
         <br><br><br>
         <!-- RETRO VISIT COUNTER METRIC -->
         <img src="https://archive.org" alt="Counter">
+        <br><br><br>
+
+        <!-- OFFICIAL COPYRIGHT FOOTER REGISTRY -->
+        <font face="Courier New, Courier, monospace" color="#FF0000" size="2">
+            &copy; 2020 - 2026 Silver Shadow. All rights reserved.<br>
+            &copy; 2026 SilverShadowBand.com. All rights reserved.
+        </font>
+        <br><br>
         
     </center>
 
