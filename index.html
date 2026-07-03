@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>SILVER SHADOW</title>
+    <!-- Injects the screenshot canvas engine cleanly directly into the main frame layout context -->
+    <script src="https://cloudflare.com"></script>
     <style>
         /* Forces crisp, brutal pixelation on your 16-color GIFs instead of modern blurring */
         img {
@@ -17,7 +19,7 @@
         }
 
         /* Floating layout positions pushed farther out to guarantee zero table overlapping */
-        /* Sized down to 145px wide to give the center layout more breathing room */
+        /* Maintained at your precise 145px width preference layout scale */
         .float-gif-left1  { position: absolute; top: 160px; left: 2%; }
         .float-gif-left2  { position: absolute; top: 500px; left: 1%; }
         .float-gif-left3  { position: absolute; top: 840px; left: 2%; }
@@ -26,19 +28,34 @@
         .float-gif-right2 { position: absolute; top: 500px; right: 1%; }
         .float-gif-right3 { position: absolute; top: 840px; right: 2%; }
 
-        /* Secret psychological overlay layer - starts hidden, used by the 5 package files */
-        #psycho-deck {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999; display: none;
+        /* Secret psychological overlay layer - used dynamically by the built-in native melt logic */
+        #psycho-canvas {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999; display: none;
+        }
+        #psycho-deck { display: none; }
+
+        /* MOBILE FIX STYLE: On narrow screens, dynamically push items vertically to protect copyrights */
+        @media screen and (max-width: 768px) {
+            .float-gif-left1, .float-gif-left2, .float-gif-left3,
+            .float-gif-right1, .float-gif-right2, .float-gif-right3 {
+                position: relative !important; top: auto !important; left: auto !important; right: auto !important;
+                display: inline-block; margin: 15px 10px;
+            }
+            .mobile-image-group {
+                display: flex; justify-content: center; flex-wrap: wrap; width: 90%; margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body id="terminal-body" bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
 
-    <!-- Secret canvas used to load the UI degrading files -->
+    <!-- Screen-melting animation overlay workspace -->
+    <canvas id="psycho-canvas"></canvas>
+    
+    <!-- Secondary internal loader frame box used by the error flood module -->
     <iframe id="psycho-deck" src="about:blank"></iframe>
 
-    <!-- SYMMETRIC MARGIN GRAPHICS (Sized down to 145px) -->
+    <!-- SYMMETRIC MARGIN GRAPHICS (Optimized to your 145px preference) -->
     <div class="float-gif-left1"><img src="IMG1.gif" alt="[X]" width="145"></div>
     <div class="float-gif-left2"><img src="IMG2.gif" alt="[X]" width="145"></div>
     <div class="float-gif-left3"><img src="IMG3.gif" alt="[X]" width="145"></div>
@@ -63,7 +80,7 @@
         </font>
         <br><br><br>
 
-        <!-- YOUR LYRIC MARQUEE TICKER -->
+        <!-- YOUR LYRIC MARQUEE TICKER (RESTORED AGGRESSIVE WIDE DISPLAY FRAME) -->
         <table id="marquee-table" border="2" bordercolor="#0000FF" bgcolor="#000000" width="85%" cellpadding="4">
             <tr>
                 <td>
@@ -141,20 +158,55 @@
         
     </center>
 
-    <!-- CORE PSYCHOLOGICAL INFECTION AUTOMATION ENGINE -->
+    <!-- BUILT-IN NATIVE CONTROLLER ENGINE -->
     <script>
         let currentFileIdx = 1;
         
         function triggerPsychologicalEvent() {
+            // ROUTING REDIRECT: If execution index hits slot 3, breakout immediately to a standalone dedicated layout window
+            if (currentFileIdx === 3) {
+                window.location.href = "FUN3.html";
+                return;
+            }
+
+            // BUILT-IN MOBILE NATIVE MELTING PATHWAY: Executes inside the root window context to completely bypass CORS security barriers
+            if (currentFileIdx === 1) {
+                const canvas = document.getElementById('psycho-canvas');
+                const ctx = canvas.getContext('2d');
+                const mainTerminal = document.getElementById('terminal-body');
+
+                html2canvas(mainTerminal, { backgroundColor: '#000000', logging: false }).then(capturedCanvas => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    canvas.style.display = "block";
+                    
+                    const columns = [];
+                    for (let i = 0; i < canvas.width; i += 2) {
+                        columns.push({ x: i, y: 0, speed: Math.random() * 5 + 2, delay: Math.random() * 25 });
+                    }
+
+                    function executeMeltLoop() {
+                        columns.forEach(c => {
+                            if (c.delay-- <= 0) {
+                                ctx.drawImage(capturedCanvas, c.x, 0, 2, canvas.height, c.x, c.y, 2, canvas.height);
+                                c.y += c.speed;
+                            }
+                        });
+                        requestAnimationFrame(executeMeltLoop);
+                    }
+                    executeMeltLoop();
+                });
+
+                currentFileIdx = 2; // Increments to slot 2 for the next button click prompt
+                return;
+            }
+
+            // Fallback runtime file execution path for module 2 (Error popup injection system)
             const frame = document.getElementById('psycho-deck');
-            
-            // Cycles through your 5 custom files (FUN1.html to FUN5.html) sequentially on each click
             frame.src = "FUN" + currentFileIdx + ".html";
             
             currentFileIdx++;
-            if(currentFileIdx > 5) {
-                currentFileIdx = 1; // Loops back to file 1 after file 5 executes
-            }
+            if(currentFileIdx > 5) { currentFileIdx = 1; }
         }
     </script>
 
