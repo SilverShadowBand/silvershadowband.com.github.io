@@ -169,13 +169,21 @@
                 return;
             }
 
-            // BUILT-IN MOBILE NATIVE MELTING PATHWAY: Executes inside the root window context to completely bypass CORS security barriers
+            // BUILT-IN NATIVE MELTING PATHWAY
             if (currentFileIdx === 1) {
                 const canvas = document.getElementById('psycho-canvas');
                 const ctx = canvas.getContext('2d');
                 const mainTerminal = document.getElementById('terminal-body');
 
-                html2canvas(mainTerminal, { backgroundColor: '#000000', logging: false }).then(capturedCanvas => {
+                // FIX: Added 'ignoreElements' to skip external files that cause browser security crashes
+                html2canvas(mainTerminal, { 
+                    backgroundColor: '#000000', 
+                    logging: false,
+                    ignoreElements: function(element) {
+                        // Safely bypasses the margin image elements to keep the code from freezing
+                        return element.tagName === 'IMG' && element.src.includes('IMG');
+                    }
+                }).then(capturedCanvas => {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
                     canvas.style.display = "block";
@@ -195,6 +203,9 @@
                         requestAnimationFrame(executeMeltLoop);
                     }
                     executeMeltLoop();
+                }).catch(err => {
+                    // Fail-safe redirect if the device completely blocks canvas operations
+                    window.parent.document.getElementById('psycho-deck').src = "FUN1.html";
                 });
 
                 currentFileIdx = 2; // Increments to slot 2 for the next button click prompt
