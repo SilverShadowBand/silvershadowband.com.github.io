@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SYSTEM VOLATILITY FLOOD</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #000000; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        /* Style rule handles the 64px image blocks spawning natively on this page */
+        .error-icon {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            background-image: url('error_icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .terminal-anchor {
+            position: relative; z-index: 999999; text-decoration: none; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+        <h1>
+            <font face="Times New Roman, Times, serif" color="#FF0000" size="6">
+                FATAL RUNTIME RECKONING
+            </font>
+        </h1>
+        <br>
+        <!-- BACK BUTTON: Stays layered safely high over top of the icon mess -->
+        <a href="index.html" class="terminal-anchor">
+            <font face="Courier New, Courier, monospace" color="#0000FF" size="4">
+                <b>[ RETURN TO CORE TERMINAL ]</b>
+            </font>
+        </a>
+    </center>
+
+    <script>
+        function spawnIcon() {
+            const icon = document.createElement('div');
+            icon.className = 'error-icon';
+            
+            // Calculates random pop-up dimensions using this standalone tab sizing bounds
+            const x = Math.random() * (window.innerWidth - 64);
+            const y = Math.random() * (window.innerHeight - 64);
+            
+            icon.style.left = x + 'px';
+            icon.style.top = y + 'px';
+            
+            document.body.appendChild(icon);
+            
+            // Re-fires the loop infinitely
+            setTimeout(spawnIcon, Math.random() * 180 + 40);
+        }
+
+        window.onload = spawnIcon;
+    </script>
+</body>
+</html>
+
