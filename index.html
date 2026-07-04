@@ -147,6 +147,7 @@
     <!-- NATIVE EXPERIMENTAL CORE AUDIO/VISUAL ROUTER -->
     <script>
         let currentFileIdx = 1;
+        let meltAnimationId = null; // Holds the animation track loop reference
         
         function triggerPsychologicalEvent() {
             // ROUTING BREAKOUT: Redirects browser immediately on stage 3
@@ -155,7 +156,7 @@
                 return;
             }
 
-            // NATIVE GLITCH MELTER LOOP (Completely independent of third-party screenshot limitations)
+            // NATIVE GLITCH MELTER LOOP
             if (currentFileIdx === 1) {
                 const canvas = document.getElementById('psycho-canvas');
                 const ctx = canvas.getContext('2d');
@@ -164,22 +165,19 @@
                 canvas.height = window.innerHeight;
                 canvas.style.display = "block";
 
-                // Step 1: Procedurally sketch a digital vector map matching your layout data variables
+                // Procedurally sketch a digital vector map matching your layout
                 ctx.fillStyle = "#000000";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                // Re-draws matching red/blue/purple console bars directly onto the animation layer context
                 ctx.fillStyle = "#000022";
                 ctx.strokeStyle = "#FF0000";
                 ctx.lineWidth = 6;
                 
-                // Draw mimicking center layout elements onto the animation block
                 const boxW = canvas.width * 0.50;
                 const boxX = (canvas.width - boxW) / 2;
                 ctx.fillRect(boxX, 350, boxW, 120);
                 ctx.strokeRect(boxX, 350, boxW, 120);
 
-                // Generate matrix string parameters to represent text lines
                 ctx.fillStyle = "#FF0000";
                 ctx.font = "bold 40px Times New Roman";
                 ctx.fillText("SILVER SHADOW", canvas.width/2 - 160, 100);
@@ -188,34 +186,43 @@
                 ctx.font = "16px Courier New";
                 ctx.fillText("::: UNDER CONSTRUCTION :::", canvas.width/2 - 120, 140);
 
-                // Step 2: Slice the procedural canvas and drop columns at random velocities
                 const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 const columns = [];
                 for (let i = 0; i < canvas.width; i += 3) {
                     columns.push({ x: i, y: 0, speed: Math.random() * 6 + 3, delay: Math.random() * 20 });
                 }
 
-                // Hide original HTML tags out of sight instantly to make the canvas breakdown look seamless
+                // Hide original elements
                 document.getElementById('main-title').style.visibility = "hidden";
                 document.getElementById('marquee-table').style.visibility = "hidden";
                 
                 function meltAnimation() {
                     columns.forEach(c => {
                         if (c.delay-- <= 0 && c.y < canvas.height) {
-                            // Grabs vertical pixel columns and drags them downward across your backdrop space
                             ctx.putImageData(imgData, 0, c.y, c.x, 0, 3, canvas.height);
                             c.y += c.speed;
                         }
                     });
-                    requestAnimationFrame(meltAnimation);
+                    meltAnimationId = requestAnimationFrame(meltAnimation);
                 }
                 meltAnimation();
 
-                currentFileIdx = 2; // Increments forward to activate FUN2.html on next prompt
+                currentFileIdx = 2; // Increments forward to activate stage 2 next
                 return;
             }
 
-            // Runtime loader framework path for Stage 2 (Windows warning popup replication injection loops)
+            // CLEAN-UP STAGE 2: If moving to stage 2, instantly kill the melt screen so error popups can show!
+            if (currentFileIdx === 2) {
+                if (meltAnimationId) { cancelAnimationFrame(meltAnimationId); }
+                
+                // Completely hide the melting layer canvas and bring your original text back to life
+                const canvas = document.getElementById('psycho-canvas');
+                canvas.style.display = "none";
+                document.getElementById('main-title').style.visibility = "visible";
+                document.getElementById('marquee-table').style.visibility = "visible";
+            }
+
+            // Runtime loader path for Stage 2 (Windows warning popup replication injection loops)
             const frame = document.getElementById('psycho-deck');
             frame.src = "FUN" + currentFileIdx + ".html";
             
