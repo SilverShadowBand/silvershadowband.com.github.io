@@ -1,0 +1,152 @@
+<HTML BGCOLOR="#000000">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>Silver Shadow</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function legacyScaleNumber(value, factor) {
+    var text = String(value);
+    var number;
+    if (text == "" || text == "auto" || text.indexOf("%") >= 0 || text.indexOf("em") >= 0) return value;
+    number = parseFloat(text);
+    if (isNaN(number)) return value;
+    return (number * factor) + "px";
+}
+
+function legacyScalePage(mode) {
+    var designWidth = 1040;
+    var contentWidth = 1000;
+    var availableWidth = 0;
+    var factor;
+    var offsetX;
+    var elements;
+    var i;
+    var element;
+    var style;
+    var attribute;
+    var originalSize;
+
+    if (document.body && document.body.clientWidth) availableWidth = document.body.clientWidth;
+    if (!availableWidth && window.screen && window.screen.width) availableWidth = window.screen.width;
+    if (!availableWidth) availableWidth = 640;
+
+    factor = availableWidth / designWidth;
+    if (factor > 1) factor = 1;
+    if (factor < 0.25) factor = 0.25;
+    offsetX = (availableWidth - (contentWidth * factor)) / 2;
+    elements = document.all;
+    if (!elements) return;
+
+    if (mode == "absolute") {
+        for (i = 0; i < elements.length; i++) {
+            element = elements[i];
+            style = element.style;
+            if (!style) continue;
+            if (style.position == "absolute") {
+                style.left = legacyScaleNumber(style.left, factor);
+                style.top = legacyScaleNumber(style.top, factor);
+                if (style.left != "") style.left = (parseFloat(style.left) + offsetX) + "px";
+            }
+            style.width = legacyScaleNumber(style.width, factor);
+            style.height = legacyScaleNumber(style.height, factor);
+            style.fontSize = legacyScaleNumber(style.fontSize, factor);
+            style.lineHeight = legacyScaleNumber(style.lineHeight, factor);
+            style.padding = legacyScaleNumber(style.padding, factor);
+            style.paddingTop = legacyScaleNumber(style.paddingTop, factor);
+            style.borderWidth = legacyScaleNumber(style.borderWidth, factor);
+        }
+        document.body.style.height = (1600 * factor) + "px";
+    } else {
+        for (i = 0; i < elements.length; i++) {
+            element = elements[i];
+            style = element.style;
+            if (style) {
+                style.width = legacyScaleNumber(style.width, factor);
+                style.height = legacyScaleNumber(style.height, factor);
+                style.fontSize = legacyScaleNumber(style.fontSize, factor);
+                style.lineHeight = legacyScaleNumber(style.lineHeight, factor);
+                style.padding = legacyScaleNumber(style.padding, factor);
+                style.paddingTop = legacyScaleNumber(style.paddingTop, factor);
+                style.borderWidth = legacyScaleNumber(style.borderWidth, factor);
+            }
+            if (element.getAttribute) {
+                attribute = element.getAttribute("width");
+                if (attribute != null && String(attribute).indexOf("%") < 0 && !isNaN(parseFloat(attribute))) element.setAttribute("width", Math.round(parseFloat(attribute) * factor));
+                attribute = element.getAttribute("height");
+                if (attribute != null && String(attribute).indexOf("%") < 0 && !isNaN(parseFloat(attribute))) element.setAttribute("height", Math.round(parseFloat(attribute) * factor));
+                attribute = element.getAttribute("cellpadding");
+                if (attribute != null && !isNaN(parseFloat(attribute))) element.setAttribute("cellpadding", Math.round(parseFloat(attribute) * factor));
+                attribute = element.getAttribute("cellspacing");
+                if (attribute != null && !isNaN(parseFloat(attribute))) element.setAttribute("cellspacing", Math.round(parseFloat(attribute) * factor));
+                attribute = element.getAttribute("border");
+                if (attribute != null && !isNaN(parseFloat(attribute))) element.setAttribute("border", Math.max(0, Math.round(parseFloat(attribute) * factor)));
+                if (element.tagName == "FONT") {
+                    originalSize = parseInt(element.getAttribute("size"), 10);
+                    if (!isNaN(originalSize)) element.setAttribute("size", Math.max(1, Math.round(1 + ((originalSize - 1) * factor))));
+                }
+            }
+        }
+        document.body.style.width = (contentWidth * factor) + "px";
+        document.body.style.marginLeft = offsetX + "px";
+        document.body.style.marginRight = offsetX + "px";
+        document.body.style.fontSize = (100 * factor) + "%";
+    }
+    window.status = "Silver Shadow: " + availableWidth + "px viewport, scale " + factor;
+}
+
+
+
+
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#FF0000" LINK="#0000FF" VLINK="#800080" ALINK="#FF00FF" LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" ONLOAD="legacyScalePage('flow')">
+<CENTER>
+<TABLE ID="legacyCanvas" WIDTH="1000" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR HEIGHT="35"><TD COLSPAN="5">&nbsp;</TD></TR>
+<TR HEIGHT="90"><TD COLSPAN="5" ALIGN="CENTER"><IMG SRC="../LOGO.gif" ALT="SILVER SHADOW" WIDTH="600" HEIGHT="66" BORDER="0"></TD></TR>
+<TR HEIGHT="50"><TD COLSPAN="5" ALIGN="CENTER"><FONT FACE="Courier New" SIZE="3" COLOR="#0000FF"><B>::: UNDER CONSTRUCTION :::</B></FONT></TD></TR>
+<TR HEIGHT="70"><TD COLSPAN="5" ALIGN="CENTER">
+<TABLE ALIGN="CENTER" WIDTH="960" HEIGHT="55" BORDER="6" BORDERCOLOR="#0000FF" BORDERCOLORLIGHT="#6666FF" BORDERCOLORDARK="#000066" CELLPADDING="4" CELLSPACING="0" BGCOLOR="#000000"><TR><TD ALIGN="CENTER"><FONT FACE="Courier New" SIZE="3" COLOR="#800080"><B><MARQUEE SCROLLAMOUNT="5" DIRECTION="LEFT">CEASE TO BELIEVE IN ALL ETERNITY - CONSCIOUSNESS EXISTS WITHOUT AN ENTITY... COMING SOON...</MARQUEE></B></FONT></TD></TR></TABLE>
+</TD></TR>
+<TR HEIGHT="180">
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG1.gif" ALT="" WIDTH="125" BORDER="0"></TD>
+<TD COLSPAN="3" WIDTH="600" ALIGN="CENTER" VALIGN="MIDDLE"><TABLE ALIGN="CENTER" WIDTH="550" HEIGHT="130" BORDER="8" BORDERCOLOR="#FF0000" BORDERCOLORLIGHT="#FF5555" BORDERCOLORDARK="#660000" CELLPADDING="12" CELLSPACING="0" BGCOLOR="#000022"><TR><TD ALIGN="CENTER" VALIGN="MIDDLE"><FONT FACE="Times New Roman" SIZE="7" COLOR="#800080"><B>COMING SOON</B></FONT></TD></TR></TABLE></TD>
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG2.gif" ALT="" WIDTH="120" BORDER="0"></TD>
+</TR>
+<TR HEIGHT="190">
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG3.gif" ALT="" WIDTH="140" BORDER="0"></TD>
+<TD COLSPAN="3" WIDTH="600" ALIGN="CENTER" VALIGN="MIDDLE"><CENTER><TABLE ALIGN="CENTER" WIDTH="180" HEIGHT="175" BORDER="6" BORDERCOLOR="#FF0000" BORDERCOLORLIGHT="#FF5555" BORDERCOLORDARK="#660000" CELLPADDING="8" CELLSPACING="0" BGCOLOR="#110000"><TR><TD ALIGN="CENTER" VALIGN="MIDDLE"><A HREF="exec19.html"><FONT FACE="Courier New" SIZE="3" COLOR="#FF0000"><IMG SRC="../ICON.gif" ALT="" WIDTH="105" HEIGHT="105" BORDER="0"><BR><B>EXECUTE</B></FONT></A></TD></TR></TABLE></CENTER></TD>
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG4.gif" ALT="" WIDTH="140" BORDER="0"></TD>
+</TR>
+<TR HEIGHT="90"><TD COLSPAN="5" ALIGN="CENTER" VALIGN="MIDDLE"><TABLE ALIGN="CENTER" WIDTH="150" HEIGHT="45" BORDER="5" BORDERCOLOR="#0000FF" BORDERCOLORLIGHT="#5555FF" BORDERCOLORDARK="#000066" CELLPADDING="5" CELLSPACING="0" BGCOLOR="#000000"><TR><TD ALIGN="CENTER"><A HREF="overview.html"><FONT FACE="Courier New" SIZE="3" COLOR="#FF0000"><B>OVERVIEW</B></FONT></A></TD></TR></TABLE></TD></TR>
+<TR HEIGHT="100">
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG5.gif" ALT="" WIDTH="125" BORDER="0"></TD>
+<TD COLSPAN="3" WIDTH="600" ALIGN="CENTER" VALIGN="MIDDLE"><CENTER><TABLE ALIGN="CENTER" WIDTH="400" HEIGHT="48" BORDER="5" BORDERCOLOR="#FF0000" BORDERCOLORLIGHT="#FF5555" BORDERCOLORDARK="#660000" CELLPADDING="5" CELLSPACING="0" BGCOLOR="#000000"><TR><TD ALIGN="CENTER"><A HREF="article.html"><FONT FACE="Courier New" SIZE="3" COLOR="#FF0000"><B>THE MAKING OF SILVER SHADOW</B></FONT></A></TD></TR></TABLE></CENTER></TD>
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG6.gif" ALT="" WIDTH="130" BORDER="0"></TD>
+</TR>
+<TR HEIGHT="90"><TD COLSPAN="5" ALIGN="CENTER" VALIGN="MIDDLE"><TABLE ALIGN="CENTER" WIDTH="190" HEIGHT="48" BORDER="6" BORDERCOLOR="#800080" BORDERCOLORLIGHT="#CC00CC" BORDERCOLORDARK="#330033" CELLPADDING="8" CELLSPACING="0" BGCOLOR="#220022"><TR><TD ALIGN="CENTER"><A HREF="fun1.html"><FONT FACE="Comic Sans MS" SIZE="3" COLOR="#FF0000"><B>!!CLICK ME!!</B></FONT></A></TD></TR></TABLE></TD></TR>
+<TR HEIGHT="150">
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG7.gif" ALT="" WIDTH="130" BORDER="0"></TD>
+<TD COLSPAN="3" WIDTH="600" ALIGN="CENTER" VALIGN="MIDDLE"><TABLE ALIGN="CENTER" WIDTH="450" HEIGHT="90" BORDER="5" BORDERCOLOR="#C0C0C0" BORDERCOLORLIGHT="#FFFFFF" BORDERCOLORDARK="#666666" CELLPADDING="10" CELLSPACING="0" BGCOLOR="#101010"><TR><TD ALIGN="CENTER"><FONT FACE="Courier New" SIZE="3" COLOR="#C0C0C0"><B>CONNECT_TO_NET</B></FONT><BR><BR><TABLE ALIGN="CENTER" WIDTH="400" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD WIDTH="100" ALIGN="CENTER" NOWRAP><A HREF="https://youtube.com/@SilverShadowBand"><FONT FACE="Courier New" SIZE="3" COLOR="#FF0000">YOUTUBE</FONT></A></TD><TD WIDTH="100" ALIGN="CENTER" NOWRAP><A HREF="https://instagram.com/silvershadowband"><FONT FACE="Courier New" SIZE="3" COLOR="#800080">INSTAGRAM</FONT></A></TD><TD WIDTH="100" ALIGN="CENTER" NOWRAP><A HREF="https://facebook.com/silvershadowband"><FONT FACE="Courier New" SIZE="3" COLOR="#0000FF">FACEBOOK</FONT></A></TD><TD WIDTH="100" ALIGN="CENTER" NOWRAP><A HREF="https://tiktok.com/@silvershadowband"><FONT FACE="Courier New" SIZE="3" COLOR="#FFFFFF">TIKTOK</FONT></A></TD></TR></TABLE></TD></TR></TABLE></TD>
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG8.gif" ALT="" WIDTH="130" BORDER="0"></TD>
+</TR>
+<TR HEIGHT="150">
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG9.gif" ALT="" WIDTH="140" BORDER="0"></TD>
+<TD COLSPAN="3" WIDTH="600" ALIGN="CENTER" VALIGN="MIDDLE">&nbsp;</TD>
+<TD WIDTH="200" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG10.gif" ALT="" WIDTH="140" BORDER="0"></TD>
+</TR>
+<TR HEIGHT="50"><TD COLSPAN="5">&nbsp;</TD></TR>
+<TR HEIGHT="180">
+<TD WIDTH="260" ALIGN="CENTER" VALIGN="MIDDLE">&nbsp;</TD>
+<TD WIDTH="140" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG12.gif" ALT="" WIDTH="112" BORDER="0"></TD>
+<TD WIDTH="190" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG13.gif" ALT="" WIDTH="120" BORDER="0"></TD>
+<TD WIDTH="300" ALIGN="CENTER" VALIGN="MIDDLE"><IMG SRC="../IMG11.gif" ALT="" WIDTH="170" BORDER="0"></TD>
+<TD WIDTH="260" ALIGN="CENTER" VALIGN="MIDDLE">&nbsp;</TD>
+</TR>
+<TR HEIGHT="65"><TD COLSPAN="5">&nbsp;</TD></TR>
+<TR HEIGHT="75"><TD COLSPAN="5" ALIGN="CENTER" VALIGN="MIDDLE"><FONT FACE="Courier New" SIZE="2" COLOR="#FF0000">&copy; 2020 - 2026 Silver Shadow. All rights reserved.<BR>&copy; 2026 SilverShadowBand.com. All rights reserved.</FONT></TD></TR>
+</TABLE>
+</CENTER>
+</BODY>
+</HTML>
+

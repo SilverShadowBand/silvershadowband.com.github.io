@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><script language="JavaScript" id="SilverShadowIE4Redirect">
+var ssUA = navigator.userAgent.toLowerCase();
+var ssMSIE = ssUA.indexOf("msie ");
+var ssOpera = ssUA.indexOf("opera/");
+var ssOldBrowser = false;
+var ssVersion;
+var ssToken;
+if (ssMSIE >= 0) {
+    ssVersion = parseFloat(ssUA.substring(ssMSIE + 5));
+    if (!isNaN(ssVersion) && ssVersion < 10) ssOldBrowser = true;
+} else if (ssOpera >= 0) {
+    ssVersion = parseFloat(ssUA.substring(ssOpera + 6));
+    if (!isNaN(ssVersion) && ssVersion < 12) ssOldBrowser = true;
+} else if (ssUA.indexOf("mozilla/2.") == 0 || ssUA.indexOf("mozilla/3.") == 0 || ssUA.indexOf("mozilla/4.") == 0) {
+    ssOldBrowser = true;
+}
+if (!ssOldBrowser) {
+    ssToken = ssUA.indexOf("rv:");
+    if (ssToken >= 0 && ssUA.indexOf("gecko/") >= 0) {
+        ssVersion = parseFloat(ssUA.substring(ssToken + 3));
+        if (!isNaN(ssVersion) && ssVersion < 2) ssOldBrowser = true;
+    }
+    ssToken = ssUA.indexOf("applewebkit/");
+    if (ssToken >= 0) {
+        ssVersion = parseFloat(ssUA.substring(ssToken + 12));
+        if (!isNaN(ssVersion) && ssVersion < 537) ssOldBrowser = true;
+    }
+}
+if (ssOldBrowser) { window.location.href = "oldnet/overview.html"; }
+</script>
+    <meta name="viewport" content="width=1000">
+    <title>OVERVIEW - SILVER SHADOW</title>
+    <style>
+        body { margin: 0; padding-top: 44px; }
+        @media (hover: none) and (pointer: coarse) {
+            body { padding-top: 220px; }
+        }
+        /* Maintains crisp, dithered 16-color pixel art execution */
+        img {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        /* Forces the image to responsive-fill its structural grid cell container without stretching */
+        .fill-box-image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
+
+    <center>
+        <br><br>
+        <!-- SHORTENED TITLE HEADER -->
+        <h1>
+            <font face="Times New Roman, Times, serif" color="#FF0000" size="7">
+                <b>OVERVIEW</b>
+            </font>
+        </h1>
+        <br><br>
+
+        <!-- MAIN TWO-COLUMN BALANCED TEXT AND GRAPHIC CONTAINER -->
+        <table border="6" bordercolor="#FF0000" bgcolor="#000022" cellpadding="25" width="85%">
+            <tr>
+                <!-- LEFT COLUMN: THE WALL OF BIOGRAPHY TEXT -->
+                <td valign="top" width="55%">
+                    <font face="Times New Roman, Times, serif" size="4">
+                        <p align="justify">
+                            Silver Shadow is a Canadian rock band formed in 2020 in Winnipeg, Manitoba, by its namesake founder, Silver Shadow.
+                        </p>
+                        <p align="justify">
+                            The band’s first release, the 2024 demo <i>Executable</i>, was created during a period marked by overwhelming psychological strain. It emerged from an attempt to express thoughts and emotions that had become increasingly difficult to process through words alone.
+                        </p>
+                        <p align="justify">
+                            With time came a deeper understanding that <i>Executable</i> represented only a fraction of what it was trying to communicate. Rather than serving as a complete statement, it became the foundation for a much broader artistic direction.
+                        </p>
+                        <p align="justify">
+                            The current project expands upon those ideas, seeking to translate an otherwise indescribable state of mind into sound. Through unpredictable composition, layered textures, audible samples, and emotionally driven performances, Silver Shadow explores the irrational, volatile, exhausting, and deeply personal landscape of the human mind not simply to tell a story, but to immerse the listener in an experience that words alone cannot adequately describe.
+                        </p>
+                    </font>
+                </td>
+
+                <!-- RIGHT COLUMN: THE MAXIMIZED IMAGE GRID CELL BOX -->
+                <td align="center" valign="middle" width="45%" bgcolor="#000000" style="border-left: 4px solid #FF0000; padding: 10px;">
+                    <!-- Auto-expands cleanly to fill the borders without any stretching distortion -->
+                    <img id="overview-art" src="IMG1.gif" alt="Silver Shadow site image" class="fill-box-image" border="2">
+                </td>
+            </tr>
+        </table>
+
+        <br><br><br>
+
+        <!-- BACK TO RUNTIME TERMINAL HUB BUTTON - NO BRACKETS -->
+        <table border="2" bordercolor="#0000FF" bgcolor="#000000" cellpadding="6">
+            <tr>
+                <td align="center">
+                    <a href="index.html">
+                        <font face="Courier New, Courier, monospace" color="#FF0000" size="3">
+                            <b>RETURN TO MAIN TERMINAL</b>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <br><br><br>
+        <!-- LEGAL COPYRIGHT BACKING REGISTRY -->
+        <font face="Courier New, Courier, monospace" color="#FF0000" size="2">
+            &copy; 2020 - 2026 Silver Shadow. All rights reserved.<br>
+            &copy; 2026 SilverShadowBand.com. All rights reserved.
+        </font>
+        <br><br>
+
+    </center>
+
+    <script>
+        const overviewImages = [
+            "IMG1.gif", "IMG2.gif", "IMG3.gif", "IMG4.gif", "IMG5.gif",
+            "IMG6.gif", "IMG7.gif", "IMG8.gif", "IMG9.gif", "IMG10.gif",
+            "IMG11.gif", "IMG12.gif", "IMG13.gif"
+        ];
+        const overviewArt = document.getElementById("overview-art");
+        overviewArt.src = overviewImages[Math.floor(Math.random() * overviewImages.length)];
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script language="JavaScript" id="SilverShadowIE4Redirect">
+var ssUA = navigator.userAgent.toLowerCase();
+var ssMSIE = ssUA.indexOf("msie ");
+var ssOpera = ssUA.indexOf("opera/");
+var ssOldBrowser = false;
+var ssVersion;
+var ssToken;
+if (ssMSIE >= 0) {
+    ssVersion = parseFloat(ssUA.substring(ssMSIE + 5));
+    if (!isNaN(ssVersion) && ssVersion < 10) ssOldBrowser = true;
+} else if (ssOpera >= 0) {
+    ssVersion = parseFloat(ssUA.substring(ssOpera + 6));
+    if (!isNaN(ssVersion) && ssVersion < 12) ssOldBrowser = true;
+} else if (ssUA.indexOf("mozilla/2.") == 0 || ssUA.indexOf("mozilla/3.") == 0 || ssUA.indexOf("mozilla/4.") == 0) {
+    ssOldBrowser = true;
+}
+if (!ssOldBrowser) {
+    ssToken = ssUA.indexOf("rv:");
+    if (ssToken >= 0 && ssUA.indexOf("gecko/") >= 0) {
+        ssVersion = parseFloat(ssUA.substring(ssToken + 3));
+        if (!isNaN(ssVersion) && ssVersion < 2) ssOldBrowser = true;
+    }
+    ssToken = ssUA.indexOf("applewebkit/");
+    if (ssToken >= 0) {
+        ssVersion = parseFloat(ssUA.substring(ssToken + 12));
+        if (!isNaN(ssVersion) && ssVersion < 537) ssOldBrowser = true;
+    }
+}
+if (ssOldBrowser) { window.location.href = "oldnet/index.html"; }
+</script>
+    <title>Silver Shadow</title>
+    <meta name="description" content="Silver Shadow is a Canadian rock band formed in Winnipeg, Manitoba, in 2020. Building on the 2024 demo Executable, the project turns a volatile, deeply personal state of mind into unpredictable, layered, emotionally driven music.">
+    <meta property="og:title" content="SILVER SHADOW">
+    <meta property="og:description" content="Silver Shadow is a Canadian rock band formed in Winnipeg, Manitoba, in 2020. Building on the 2024 demo Executable, the project turns a volatile, deeply personal state of mind into unpredictable, layered, emotionally driven music.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SILVER SHADOW">
+    <meta name="twitter:description" content="Silver Shadow is a Canadian rock band formed in Winnipeg, Manitoba, in 2020. Building on the 2024 demo Executable, the project turns a volatile, deeply personal state of mind into unpredictable, layered, emotionally driven music.">
+    <meta name="keywords" content="Silver Shadow, SilverShadowBand, Industrial Metal, Zoom 9030, 8-Bit, 16-Color BMP">
+    <meta name="color-scheme" content="dark">
+    <meta name="viewport" content="width=1000">
+    <style>
+        * { box-sizing: border-box; }
+        html { background:#000; min-height:100%; }
+        body { margin:0; min-height:100vh; background:#000; background-attachment:fixed; color:#ff0000; font-family:"Times New Roman", Times, serif; }
+        img { image-rendering: pixelated; image-rendering: crisp-edges; }
+        .masthead { padding: 44px 12px 8px; text-align: center; }
+        .logo { display: block; width: 600px; max-width: 95%; height: auto; margin: 0 auto; }
+        .construction { margin: 12px 0 22px; color: #00f; font: bold 18px "Courier New", Courier, monospace; letter-spacing: 2px; }
+        .marquee-frame { width: calc(100% - 24px); max-width: 1800px; margin: 0 auto 18px; border: 6px outset #00f; background: #080808; padding: 7px; }
+        .marquee-inner { border: 3px inset #000055; background: #000; padding: 6px; }
+        .marquee-inner marquee { color: #800080; font: bold 21px "Courier New", Courier, monospace; }
+        .scene { position: relative; min-height: 1120px; max-width: 1600px; margin: 0 auto; padding: 12px 12px 34px; }
+        .art-wall { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
+        .art-wall img { position: absolute; max-width: 100%; height: auto; }
+        .art-1  { width: 155px; top: 28px; left: 3%; transform: rotate(-3deg); }
+        .art-2  { width: 120px; top: 42px; right: 4%; transform: rotate(3deg); }
+        .art-3  { width: 140px; top: 260px; left: 10%; transform: rotate(2deg); }
+        .art-4  { width: 150px; top: 245px; right: 10%; transform: rotate(-3deg); }
+        .art-5  { width: 120px; top: 500px; left: 4%; transform: rotate(3deg); }
+        .art-6  { width: 160px; top: 515px; right: 3%; transform: rotate(-2deg); }
+        .art-7  { width: 115px; top: 745px; left: 10%; transform: rotate(-4deg); }
+        .art-8  { width: 160px; top: 730px; right: 10%; transform: rotate(2deg); }
+        .art-9  { width: 140px; top: 990px; left: 4%; transform: rotate(-2deg); }
+        .art-10 { width: 160px; top: 975px; right: 3%; transform: rotate(3deg); }
+        .art-11 { width: 170px; bottom: 34px; left: calc(50% + 120px); transform: rotate(-3deg); }
+        .art-12 { width: 112px; bottom: 8px; left: calc(34% - 50px); transform: rotate(2deg); }
+        .art-13 { width: 120px; bottom: 52px; left: calc(50% - 50px); transform: translateX(-50%) rotate(-2deg); }
+        .main-stack { position: relative; z-index: 1; width: min(620px, 100%); margin: 0 auto; text-align: center; }
+        .retro-panel { display: inline-block; max-width: 100%; margin: 17px auto; padding: 13px 15px; border: 5px outset #f00; background: #110000; }
+        .retro-panel.blue { border-color: #00f; background: #0a0a0a; }
+        .retro-panel.purple { border-color: #800080; background: #220022; }
+        .retro-panel a { color: #f00; font: bold 16px "Courier New", Courier, monospace; text-decoration: none; }
+        .retro-panel a:hover { color: #fff; }
+        .coming-soon { width: min(540px, 100%); min-height: 126px; display: flex; align-items: center; justify-content: center; margin: 22px auto 26px; padding: 18px; border: 8px outset #f00; background: #000022; color: #800080; font-size: clamp(28px, 5vw, 46px); font-weight: bold; }
+        .retro-blink { animation: blinker 1.2s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .execute-panel { display: inline-block; min-width: 200px; margin: 14px auto 18px; padding: 15px 22px; border: 5px outset #f00; background: #110000; }
+        .execute-panel a { color: #f00; font: bold 15px "Courier New", Courier, monospace; text-decoration: none; }
+        .execute-panel img { display: block; width: 100px; max-width: 100%; height: auto; margin: 0 auto 5px; }
+        .social-panel { width: min(500px, 100%); margin: 36px auto 0; padding: 14px; border: 5px outset #c0c0c0; background: #0f0f0f; color: #c0c0c0; font: 14px "Courier New", Courier, monospace; }
+        .social-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 10px; margin-top: 10px; }
+        .social-links a { font-weight: bold; text-decoration: none; }
+        .copyright { position: relative; z-index: 1; margin: 28px auto 36px; padding: 18px 12px; text-align: center; color: #f00; font: 12px "Courier New", Courier, monospace; }
+        @media (max-width: 1200px) and (min-width: 901px) {
+            .scene { max-width: 1200px; }
+            .art-wall img { width: 108px; }
+            .art-3, .art-4, .art-6, .art-8, .art-9, .art-10, .art-11 { width: 126px !important; }
+            .art-12, .art-13 { width: 100px !important; }
+            .main-stack { width: 570px; }
+        }
+        @media (hover: none) and (pointer: coarse) {
+            .masthead { padding-top: 80px; }
+        }
+    </style>
+</head>
+<body id="terminal-body" bgcolor="#000000" text="#FF0000" link="#0000FF" vlink="#800080" alink="#FF00FF">
+    <header class="masthead">
+        <h1 style="margin:0;"><img class="logo" src="LOGO.gif" alt="SILVER SHADOW"></h1>
+        <p class="construction">::: UNDER CONSTRUCTION :::</p>
+    </header>
+
+    <div class="marquee-frame">
+        <div class="marquee-inner">
+            <marquee scrollamount="5" direction="left">CEASE TO BELIEVE IN ALL ETERNITY - CONSCIOUSNESS EXISTS WITHOUT AN ENTITY... COMING SOON...</marquee>
+        </div>
+    </div>
+
+    <div class="scene">
+        <div class="art-wall" aria-hidden="true">
+            <img class="art-1" src="IMG1.gif" alt="">
+            <img class="art-2" src="IMG2.gif" alt="">
+            <img class="art-3" src="IMG3.gif" alt="">
+            <img class="art-4" src="IMG4.gif" alt="">
+            <img class="art-5" src="IMG5.gif" alt="">
+            <img class="art-6" src="IMG6.gif" alt="">
+            <img class="art-7" src="IMG7.gif" alt="">
+            <img class="art-8" src="IMG8.gif" alt="">
+            <img class="art-9" src="IMG9.gif" alt="">
+            <img class="art-10" src="IMG10.gif" alt="">
+            <img class="art-11" src="IMG11.gif" alt="">
+            <img class="art-12" src="IMG12.gif" alt="">
+            <img class="art-13" src="IMG13.gif" alt="">
+        </div>
+
+        <main class="main-stack">
+            <div class="coming-soon"><span class="retro-blink">COMING SOON</span></div>
+
+            <div class="execute-panel">
+                <a href="exec19.html"><img src="ICON.gif" alt="">EXECUTE</a>
+            </div>
+            <br>
+
+            <div class="retro-panel blue">
+                <a href="overview.html">OVERVIEW</a>
+            </div>
+            <br>
+
+            <div class="retro-panel">
+                <a href="article/article.html">THE MAKING OF SILVER SHADOW</a>
+            </div>
+            <br>
+
+            <div class="retro-panel purple">
+                <button onclick="triggerChaoticRoulette()" style="background:#800080;color:#ff0000;font:bold 16px 'Comic Sans MS',cursive;letter-spacing:1px;padding:8px 22px;border:5px outset #a0a;cursor:pointer;text-shadow:2px 2px #000;">
+                    <span class="retro-blink">!!CLICK ME!!</span>
+                </button>
+            </div>
+
+            <footer class="social-panel">
+                <b>CONNECT_TO_NET</b>
+                <div class="social-links">
+                    <a href="https://youtube.com/@SilverShadowBand" target="_blank" rel="noopener"><font color="#ff0000">YOUTUBE</font></a>
+                    <span>|</span>
+                    <a href="https://instagram.com/silvershadowband" target="_blank" rel="noopener"><font color="#800080">INSTAGRAM</font></a>
+                    <span>|</span>
+                    <a href="https://facebook.com/silvershadowband" target="_blank" rel="noopener"><font color="#0000ff">FACEBOOK</font></a>
+                    <span>|</span>
+                    <a href="https://tiktok.com/@silvershadowband" target="_blank" rel="noopener"><font color="#ffffff">TIKTOK</font></a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <div class="copyright">
+        ℗© 2020 - 2026 Silver Shadow℠. All rights reserved.<br>
+        &copy; 2026 SilverShadowBand.com. All rights reserved.
+    </div>
+
+    <script>
+        function triggerChaoticRoulette() {
+            var randomRoll = Math.floor(Math.random() * 3) + 1;
+            window.location.href = "fun" + randomRoll + ".html";
+        }
+    </script>
+</body>
+</html>
+
+
